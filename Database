@@ -1,0 +1,58 @@
+import java.util.Scanner;
+import java.util.TreeSet;
+
+public class Database {
+
+	private static TreeSet<String> names = new TreeSet<String>();
+	
+	public static void main(String[] args) {
+
+		userInterface();
+		
+	}//end main
+
+	public static void userInterface() {
+		
+		int input = -1;
+		String name;
+		Scanner scnr = new Scanner(System.in);
+		
+		System.out.println("1. add");
+		System.out.println("2. remove");
+		System.out.println("3. search");
+		System.out.println("4. print");
+		System.out.println("5. Exit");
+		
+		while(input != 5) {
+		
+		input = scnr.nextInt();
+		
+		if(input == 1 || input == 2 || input == 3 ) {
+			name = scnr.next();
+		}
+
+		switch(input) {
+			case 1: 
+				names.add(name);
+				break;
+			case 2: 
+				names.remove(name);
+				break;
+			case 3: 
+				if(names.contains(name)){
+					System.out.println("found");
+				}
+				break;
+			case 4: 
+				System.out.println("Total: " + names.size());
+				for(String s: names) {
+					System.out.print(s);
+				}
+				break;
+		}//end switch
+		
+	}//end while loop
+	}//userInterface
+	
+	
+}//end Database
